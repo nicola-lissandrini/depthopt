@@ -1,0 +1,11 @@
+test_node:
+  topics:
+    first_sub: /first
+    second_sub: /second
+    ottimizzato_pub: /ottimizzato
+  pcl_win:
+    integer: 6
+    boolean: false
+  optim:
+    rate: 200
+    smooth_radius: 0.7

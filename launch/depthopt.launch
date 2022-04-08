@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<launch>
+	<rosparam command="load" file="$(find depthopt)/config/depthopt.yaml" />
+	<node type="depthopt" name="depthopt" pkg="depthopt" output="screen" required="true" respawn="false" />
+	
+	<!--node type="display_history_new.py" name="display_history_new" pkg="depthopt" output="screen" required="true" /-->
+	<node type="scope.py" name="scope1" pkg="slife" output="screen" required="true">
+		<param name="topic" value="/depthopt/outputs/estimate" />
+		<param name="y_min" value="-0.25" />
+		<param name="y_max" value="0.25" />
+	</node>
+	<node type="scope.py" name="scope3" pkg="slife" output="screen" required="true">
+		<param name="topic" value="/depthopt/outputs/relative_ground_truth" />
+		<param name="y_min" value="-0.25" />
+		<param name="y_max" value="0.25" />
+	</node>
+	<!--node type="scope.py" name="scope4" pkg="slife" output="screen" required="true">
+		<param name="topic" value="/depthopt/outputs/misc" />
+		<param name="y_min" value="-0.25" />
+		<param name="y_max" value="0.25" />
+	</node-->
+</launch>
